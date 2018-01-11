@@ -62,6 +62,8 @@
 
          <header-file src="src/ios/PESDKPlugin.h" />
          <source-file src="src/ios/PESDKPlugin.m" />
+         <header-file src="src/ios/UIColor+Utilities.h" />
+         <source-file src="src/ios/UIColor+Utilities.m" />
 
          <framework src="Photos.framework" />
          <framework src="ImageIO.framework" weak="true" />

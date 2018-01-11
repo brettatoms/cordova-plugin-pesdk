@@ -9,7 +9,9 @@
 #import <Photos/Photos.h>
 #import <objc/message.h>
 #import "PESDKPlugin.h"
+#import "UIColor+Utilities.h"
 @import PhotoEditorSDK;
+
 
 @interface PESDKPlugin () <PESDKPhotoEditViewControllerDelegate>
 @property(strong) CDVInvokedUrlCommand *lastCommand;
@@ -61,15 +63,14 @@
 - (void)present:(CDVInvokedUrlCommand *)command {
     if (self.lastCommand == nil) {
         self.lastCommand = command;
-        
+
+        // Parse arguments
+        NSDictionary *options = command.arguments[0];
         PESDKConfiguration *configuration = [[PESDKConfiguration alloc] initWithBuilder:^(PESDKConfigurationBuilder * _Nonnull builder) {
-            // Customize the SDK to match your requirements:
-            // ...eg.:
-            // [builder setBackgroundColor:[UIColor whiteColor]];
+            [builder setBackgroundColor:[UIColor colorFromHexString:options[@"backgroundColor"]]];
+            [builder setMenuBackgroundColor:[UIColor colorFromHexString:options[@"menuBackgroundColor"]]];
         }];
 
-        // Parse arguments and extract filepath
-        NSDictionary *options = command.arguments[0];
         NSString *filepath = options[@"path"];
         if (filepath) {
             NSError *dataCreationError;
