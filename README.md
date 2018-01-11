@@ -1,4 +1,4 @@
-# PhotoEditor SDK Cordova Plugin Demo
+# PhotoEditor SDK Cordova Plugin
 
 This project is an attempt to create a [PhotoEditor SDK](https://www.photoeditorsdk.com/) plugin for Cordova.  It is based off the  [PhotoEditor SDK Cordova Plugin Demo](https://github.com/imgly/pesdk-cordova-demo);
 
